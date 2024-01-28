@@ -6,7 +6,7 @@
 /*   By: ael-qori <ael-qori@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 21:27:23 by ael-qori          #+#    #+#             */
-/*   Updated: 2024/01/28 09:29:43 by ael-qori         ###   ########.fr       */
+/*   Updated: 2024/01/28 10:03:22 by ael-qori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int lock(t_data *data, t_philo *philo)
 		pthread_mutex_unlock(&data->mutex_dead);
 		return (0);
 	}
-	if ((gettime(data) - philo->last_meal) >= data->inputs->time_to_die)
+	if ((gettime(data) - philo->last_meal) > data->inputs->time_to_die)
 	{
 		data->died = 1;
 		print(data, philo, DEAD, BOLDRED);

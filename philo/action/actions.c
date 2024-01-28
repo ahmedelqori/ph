@@ -6,7 +6,7 @@
 /*   By: ael-qori <ael-qori@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 21:16:06 by ael-qori          #+#    #+#             */
-/*   Updated: 2024/01/28 09:27:07 by ael-qori         ###   ########.fr       */
+/*   Updated: 2024/01/28 10:00:21 by ael-qori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void *philosophers(void *arg)
 	{
 		if (data->inputs->number_of_philosophers == 1)
 			philo_one(data, philo);
-		magic(data, philo);
+		else
+			magic(data, philo);
 	}
 	return (NULL);
 }
