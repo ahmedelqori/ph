@@ -6,7 +6,7 @@
 /*   By: ael-qori <ael-qori@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 21:27:23 by ael-qori          #+#    #+#             */
-/*   Updated: 2024/01/28 10:03:22 by ael-qori         ###   ########.fr       */
+/*   Updated: 2024/01/28 15:01:00 by ael-qori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int check_how_many_eat(t_data *data, t_philo *philo)
 		}
 		if (data->all_eat == data->inputs->number_of_philosophers)
 		{
-			pthread_mutex_lock(&data->mutex_eat);
+			pthread_mutex_unlock(&data->mutex_eat);
 			return (0);
 		}
 	}

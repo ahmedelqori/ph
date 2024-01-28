@@ -6,7 +6,7 @@
 /*   By: ael-qori <ael-qori@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 09:21:07 by ael-qori          #+#    #+#             */
-/*   Updated: 2024/01/28 09:48:16 by ael-qori         ###   ########.fr       */
+/*   Updated: 2024/01/28 10:17:33 by ael-qori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void sleeping(t_data *data, t_philo *philo)
 		pthread_mutex_unlock(&data->mutex_eat);
 		print(data, philo, SLEEP, BOLDMAGENTA);
 		ft_usleep(data->inputs->time_to_sleep);
+		return;
 	}
-	else
-		pthread_mutex_unlock(&data->mutex_eat);
+	pthread_mutex_unlock(&data->mutex_eat);
 }

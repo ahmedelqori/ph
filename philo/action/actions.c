@@ -6,7 +6,7 @@
 /*   By: ael-qori <ael-qori@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 21:16:06 by ael-qori          #+#    #+#             */
-/*   Updated: 2024/01/28 10:00:21 by ael-qori         ###   ########.fr       */
+/*   Updated: 2024/01/28 10:24:32 by ael-qori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void *philosophers(void *arg)
 	philo = &data->philosophers[i++];
 	pthread_mutex_unlock(&data->mutex_plus);
 	if (philo->id % 2 == 0)
-		usleep(15);
+		ft_usleep(15);
 	while (lock(data, philo))
 	{
 		if (data->inputs->number_of_philosophers == 1)
@@ -57,10 +57,10 @@ void actions(t_data *data)
 	while (i < data->inputs->number_of_philosophers)
 	{
 		data->philosophers[i].last_meal = data->time_zero;
-		pthread_create(&data->philosophers[i].thread, NULL, philosophers, data);
+		pthread_create(&data->philosophers[i].thread, NULL, &philosophers, data);
 		i++;
 	}
-	i = 0;
-	while (i < data->inputs->number_of_philosophers)
-		pthread_join(data->philosophers[i++].thread, NULL);
+	i = -1;
+	while (++i < data->inputs->number_of_philosophers)
+		pthread_join(data->philosophers[i].thread, NULL);
 }
